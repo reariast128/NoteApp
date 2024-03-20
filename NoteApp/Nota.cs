@@ -15,5 +15,4 @@ public class Nota
         this.horaModificacion = DateTime.Now;
     }
     
-    
 }
