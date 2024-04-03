@@ -4,6 +4,7 @@ namespace NoteApp
     {
         public static void Main()
         {
+            Gui gui = new Gui();
             Gui.Run();
         }
     }
