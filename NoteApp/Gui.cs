@@ -1,24 +1,87 @@
 using Gtk;
 namespace NoteApp;
 
-public class Gui {
+public class Gui
+{
+    static void callback(object obj, EventArgs args)
+    {
+        Button mybutton = (Button)obj;
+        Console.WriteLine("Hello again - {0} was pressed", (string)mybutton.Label);
+    }
 
-    public static void Run() {
+    static void exit_event(object obj, EventArgs args)
+    {
+        Application.Quit();
+    }
+
+    public static void Main(string[] args)
+    {
         Application.Init();
 
-        //Create the Window
-        Window myWin = new Window("My first GTK# Application! ");
-        myWin.Resize(200,200);
+        /* Create a new window */
+        Window window = new Window("NoteApp");
+        window.Resize(1220, 720);
 
-        //Create a label and put some text in it.
-        Label myLabel = new Label();
-        myLabel.Text = "Hello World!!!!";
+        /* Set a handler for delete_event that immediately exits GTK */
+        window.DeleteEvent += (o, e) => Application.Quit();
 
-        //Add the label to the form
-        myWin.Add(myLabel);
+        /* Sets the border width of the window */
+        window.BorderWidth = 20;
 
-        //Show Everything
-        myWin.ShowAll();
+        /* Create three 2x2 tables */
+        Table table1 = new Table(2, 2, true);
+        Table table2 = new Table(2, 2, true);
+        Table table3 = new Table(2, 2, true);
+
+        /* Create a ComboBox for the notebooks */
+        ComboBox comboBox = new ComboBox();
+        table1.Attach(comboBox, 1, 2, 0, 1);
+
+        /* Create buttons */
+        Button button1 = new Button("Cuaderno");
+        button1.SetSizeRequest(400, 400);
+        button1.Clicked += (sender, e) => {
+            // Fill the ComboBox with the names of your notebooks
+            List<string> cuadernos = crearCuaderno(string titulo); // Replace this with your method to get the notebooks
+
+            foreach (string cuaderno in cuadernos)
+            {
+                comboBox.AppendText(cuaderno);
+            }
+
+            // If there are no notebooks, add the option to create a new one
+            if (cuadernos.Count == 0)
+            {
+                comboBox.AppendText("Añadir un nuevo cuaderno");
+            }
+
+            // Show the ComboBox
+            comboBox.Show();
+        };
+        table1.Attach(button1, 0, 1, 0, 1);
+        button1.Show();
+
+        /* Create "Quit" button */
+        Button quitButton = new Button("Quit");
+        quitButton.Clicked += exit_event;
+        quitButton.Show();
+
+        /* Put the tables in a horizontal box */
+        HBox hbox = new HBox(false, 10);
+        hbox.PackStart(table1, true, true, 0);
+        hbox.PackStart(table2, true, true, 0);
+        hbox.PackStart(table3, true, true, 0);
+
+        /* Put the horizontal box and the Quit button in a vertical box */
+        VBox vbox = new VBox(false, 10);
+        vbox.PackStart(hbox, true, true, 0);
+        vbox.PackStart(quitButton, false, false, 0);
+
+        /* Add the vertical box to the window */
+        window.Add(vbox);
+
+        /* Show all elements */
+        window.ShowAll();
 
         Application.Run();
     }
