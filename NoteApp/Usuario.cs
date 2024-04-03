@@ -8,7 +8,7 @@ public class Usuario
     public Usuario(string nombre)
     {
         this.nombre = nombre;
-        
+        this.cuadernos.Append(new Cuaderno("Nuevo Cuaderno"));
     }
 
     public void cambiarNombre(string nombre)

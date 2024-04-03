@@ -37,6 +37,8 @@ public class Gui
 
         /* Create a ComboBox for the notebooks */
         ComboBox comboBox = new ComboBox();
+        ListStore cuadernos = new ListStore(typeof(string));
+        comboBox.Model = cuadernos;
         table1.Attach(comboBox, 1, 2, 0, 1);
 
         /* Create buttons */
@@ -46,7 +48,7 @@ public class Gui
             
             foreach (string cuaderno in controlador.ObtenerTitulosCuaderno())
             {
-                comboBox.AppendText(cuaderno);
+                cuadernos.AppendValues(cuaderno);
             }
 
             // Show the ComboBox
