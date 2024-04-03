@@ -49,7 +49,7 @@ public class Controlador
 
     public string ObtenerNombreUsuario => this.usuarioActual.nombre;
 
-    public List<string> ObtenerTitulosCuaderno(int idCuaderno)
+    public List<string> ObtenerTitulosCuaderno()
     {
         List<string> titulosCuadernos = new List<string>();
 
