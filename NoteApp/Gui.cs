@@ -16,6 +16,8 @@ public class Gui
 
     public static void Main(string[] args)
     {
+        Usuario usuario = new Usuario("Yo");
+        Controlador controlador = new Controlador(usuario);
         Application.Init();
 
         /* Create a new window */
@@ -41,18 +43,10 @@ public class Gui
         Button button1 = new Button("Cuaderno");
         button1.SetSizeRequest(400, 400);
         button1.Clicked += (sender, e) => {
-            // Fill the ComboBox with the names of your notebooks
-            List<string> cuadernos = crearCuaderno(string titulo); // Replace this with your method to get the notebooks
-
-            foreach (string cuaderno in cuadernos)
+            
+            foreach (string cuaderno in controlador.ObtenerTitulosCuaderno())
             {
                 comboBox.AppendText(cuaderno);
-            }
-
-            // If there are no notebooks, add the option to create a new one
-            if (cuadernos.Count == 0)
-            {
-                comboBox.AppendText("Añadir un nuevo cuaderno");
             }
 
             // Show the ComboBox
