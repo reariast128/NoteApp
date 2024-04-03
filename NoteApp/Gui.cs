@@ -1,7 +1,7 @@
 using Gtk;
 namespace NoteApp;
 
-public class Raiz {
+public class Gui {
 
     public static void Run() {
         Application.Init();

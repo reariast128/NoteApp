@@ -4,7 +4,7 @@ namespace NoteApp
     {
         public static void Main()
         {
-            Raiz.Run();
+            Gui.Run();
         }
     }
 }
