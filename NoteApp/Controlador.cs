@@ -21,6 +21,11 @@ public class Controlador
         this.usuarioActual.eliminarCuaderno(id);
     }
 
+    public void ModificarTituloCuaderno(int idCuaderno, string titulo)
+    {
+        this.usuarioActual.cuadernos[idCuaderno].modificarTitulo(titulo);
+    }
+
     public void CrearNota(int idCuaderno, string tituloNota,string contenidoNota)
     {
         this.usuarioActual.cuadernos[idCuaderno].crearNota(tituloNota, contenidoNota);
@@ -34,6 +39,11 @@ public class Controlador
     public void EliminarNota(int idCuaderno, int idNota)
     {
         this.usuarioActual.cuadernos[idCuaderno].eliminarNota(idNota);
+    }
+
+    public void ModificarTituloNota(int idCuaderno, int idNota, string titulo)
+    {
+        this.usuarioActual.cuadernos[idCuaderno].modificarTituloNota(idNota, titulo);
     }
     
 }
