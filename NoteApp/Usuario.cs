@@ -8,6 +8,7 @@ public class Usuario
     public Usuario(string nombre)
     {
         this.nombre = nombre;
+        this.cuadernos = new List<Cuaderno>();
         this.cuadernos.Append(new Cuaderno("Nuevo Cuaderno"));
     }
 

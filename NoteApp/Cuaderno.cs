@@ -12,7 +12,8 @@ namespace NoteApp
             this.titulo = titulo;
             this.horaCreacion = DateTime.Now;
             this.horaModificacion = DateTime.Now;
-            this.notas.Append(new Nota("Nueva nota", ""));
+            this.notas = new List<Nota>();
+            this.notas.Append(new Nota("Nueva nota", "Comienza a escribir..."));
         }
 
         public void crearNota(string titulo, string contenido)
