@@ -14,7 +14,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="GtkSharp" Version="3.24.24.117-develop" />
+      <PackageReference Include="Terminal.Gui" Version="1.15.1" />
     </ItemGroup>
 
 </Project>
