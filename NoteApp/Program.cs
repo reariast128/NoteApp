@@ -6,7 +6,8 @@ namespace NoteApp
         {
             Usuario user = new Usuario("Yo");
             Controlador c = new Controlador(user);
-            Tui t = new Tui();
+            c.CrearCuaderno("Segundo cuaderno");
+            Tui t = new Tui(c);
             t.Run();
         }
     }

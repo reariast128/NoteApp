@@ -55,7 +55,7 @@ public class Controlador
 
         foreach (var cuaderno in this.usuarioActual.cuadernos)
         {
-            titulosCuadernos.Append(cuaderno.titulo);
+            titulosCuadernos.Add(cuaderno.titulo);
         }
 
         return titulosCuadernos;
@@ -67,7 +67,7 @@ public class Controlador
 
         foreach (var nota in this.usuarioActual.cuadernos[idCuaderno].notas)
         {
-            titulosNotas.Append(nota.titulo);
+            titulosNotas.Add(nota.titulo);
         }
 
         return titulosNotas;
