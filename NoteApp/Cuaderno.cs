@@ -2,52 +2,50 @@ namespace NoteApp
 {
     public class Cuaderno
     {
-        public string titulo;
-        public DateTime horaCreacion;
-        public DateTime horaModificacion;
-        public List<Nota> notas;
+        public string Titulo;
+        public DateTime HoraCreacion;
+        public DateTime HoraModificacion;
+        public List<Nota> Notas;
 
         public Cuaderno(string titulo)
         {
-            this.titulo = titulo;
-            this.horaCreacion = DateTime.Now;
-            this.horaModificacion = DateTime.Now;
-            this.notas = new List<Nota>();
-            this.notas.Append(new Nota("Nueva nota", "Comienza a escribir..."));
+            this.Titulo = titulo;
+            this.HoraCreacion = DateTime.Now;
+            this.HoraModificacion = DateTime.Now;
+            this.Notas = new List<Nota>();
+            this.CrearNota("Nueva nota", "veamos que pasa");
         }
 
-        public void crearNota(string titulo, string contenido)
+        public void CrearNota(string titulo, string contenido)
         {
-            Nota nota = new Nota(titulo, contenido);
-            this.notas.Add(nota);
-            this.horaModificacion = DateTime.Now;
+            this.Notas.Add(new Nota(titulo, contenido));
+            this.HoraModificacion = DateTime.Now;
         }
 
-        public void eliminarNota(int id)
+        public void EliminarNota(int id)
         {
-            this.notas.RemoveAt(id);
-            this.horaModificacion = DateTime.Now;
+            this.Notas.RemoveAt(id);
+            this.HoraModificacion = DateTime.Now;
         }
 
-        public void modificarContenidoNota(int id, string contenido)
+        public void ModificarContenidoNota(int id, string contenido)
         {
-            this.notas[id].contenido = contenido;
-            this.notas[id].horaModificacion = DateTime.Now;
-            this.horaModificacion = DateTime.Now;
+            this.Notas[id].Contenido = contenido;
+            this.Notas[id].HoraModificacion = DateTime.Now;
+            this.HoraModificacion = DateTime.Now;
         }
 
-        public void modificarTituloNota(int id, string titulo)
+        public void ModificarTituloNota(int id, string titulo)
         {
-            this.notas[id].titulo = titulo;
-            this.notas[id].horaModificacion = DateTime.Now;
-            this.horaModificacion = DateTime.Now;
+            this.Notas[id].Titulo = titulo;
+            this.Notas[id].HoraModificacion = DateTime.Now;
+            this.HoraModificacion = DateTime.Now;
         }
 
-        public void modificarTitulo(string titulo)
+        public void ModificarTitulo(string titulo)
         {
-            this.titulo = titulo;
-            this.horaModificacion = DateTime.Now;
+            this.Titulo = titulo;
+            this.HoraModificacion = DateTime.Now;
         }
-
     }
 }

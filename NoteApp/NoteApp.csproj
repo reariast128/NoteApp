@@ -8,13 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-	<Reference Include="gtk-sharp, Version=2.4.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
-	  <SpecificVersion>False</SpecificVersion>
-	</Reference>
-    </ItemGroup>
-
-    <ItemGroup>
-      <PackageReference Include="Terminal.Gui" Version="1.15.1" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     </ItemGroup>
 
 </Project>

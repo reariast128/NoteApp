@@ -1,90 +1,95 @@
-using System.Numerics;
-using System.Runtime.InteropServices.JavaScript;
-
-namespace NoteApp;
-
-public class Controlador
+namespace NoteApp
 {
-    public Usuario usuarioActual;
 
-    public Controlador(Usuario usuario)
+    public class Controlador
     {
-        this.usuarioActual = usuario;
-    }
+        public Usuario UsuarioActual;
 
-    public void CrearCuaderno(string nombre)
-    {
-        this.usuarioActual.crearCuaderno(nombre);
-    }
-
-    public void EliminarCuaderno(int id)
-    {
-        this.usuarioActual.eliminarCuaderno(id);
-    }
-
-    public void ModificarTituloCuaderno(int idCuaderno, string titulo)
-    {
-        this.usuarioActual.cuadernos[idCuaderno].modificarTitulo(titulo);
-    }
-
-    public void CrearNota(int idCuaderno, string tituloNota, string contenidoNota)
-    {
-        this.usuarioActual.cuadernos[idCuaderno].crearNota(tituloNota, contenidoNota);
-    }
-
-    public void ModificarNota(int idCuaderno, int idNota, string contenido)
-    {
-        this.usuarioActual.cuadernos[idCuaderno].modificarContenidoNota(idNota, contenido);
-    }
-
-    public void EliminarNota(int idCuaderno, int idNota)
-    {
-        this.usuarioActual.cuadernos[idCuaderno].eliminarNota(idNota);
-    }
-
-    public void ModificarTituloNota(int idCuaderno, int idNota, string titulo)
-    {
-        this.usuarioActual.cuadernos[idCuaderno].modificarTituloNota(idNota, titulo);
-    }
-
-    public string ObtenerNombreUsuario => this.usuarioActual.nombre;
-
-    public List<string> ObtenerTitulosCuaderno()
-    {
-        List<string> titulosCuadernos = new List<string>();
-
-        foreach (var cuaderno in this.usuarioActual.cuadernos)
+        public Controlador(Usuario usuario)
         {
-            titulosCuadernos.Add(cuaderno.titulo);
+            this.UsuarioActual = usuario;
         }
 
-        return titulosCuadernos;
-    }
-
-    public List<String> ObtenerTitulosNotasCuaderno(int idCuaderno)
-    {
-        List<String> titulosNotas = new List<string>();
-
-        foreach (var nota in this.usuarioActual.cuadernos[idCuaderno].notas)
+        public void CrearCuaderno(string nombre)
         {
-            titulosNotas.Add(nota.titulo);
+            this.UsuarioActual.CrearCuaderno(nombre);
         }
 
-        return titulosNotas;
-    }
+        public void EliminarCuaderno(int id)
+        {
+            this.UsuarioActual.EliminarCuaderno(id);
+        }
 
-    public DateTime ObtenerFechaCreacionCuaderno(int idCuaderno) =>
-        this.usuarioActual.cuadernos[idCuaderno].horaCreacion;
-    
-    public DateTime ObtenerFechaModificacionCuaderno(int idCuaderno) =>
-        this.usuarioActual.cuadernos[idCuaderno].horaModificacion;
-    
-    public string ObtenerContenidoNota(int idCuaderno, int idNota) =>
-        this.usuarioActual.cuadernos[idCuaderno].notas[idNota].contenido;
-    
-    public DateTime ObtenerFechaCreacionNota(int idCuaderno, int idNota) =>
-        this.usuarioActual.cuadernos[idCuaderno].notas[idNota].horaCreacion;
-    
-    public DateTime ObtenerFechaModificacionNota(int idCuaderno, int idNota) =>
-        this.usuarioActual.cuadernos[idCuaderno].notas[idNota].horaModificacion;
+        public void ModificarTituloCuaderno(int idCuaderno, string titulo)
+        {
+            this.UsuarioActual.Cuadernos[idCuaderno].ModificarTitulo(titulo);
+        }
+
+        public void CrearNota(int idCuaderno, string tituloNota, string contenidoNota)
+        {
+            this.UsuarioActual.Cuadernos[idCuaderno].CrearNota(tituloNota, contenidoNota);
+        }
+
+        public void ModificarNota(int idCuaderno, int idNota, string contenido)
+        {
+            this.UsuarioActual.Cuadernos[idCuaderno].ModificarContenidoNota(idNota, contenido);
+        }
+
+        public void EliminarNota(int idCuaderno, int idNota)
+        {
+            this.UsuarioActual.Cuadernos[idCuaderno].EliminarNota(idNota);
+        }
+
+        public void ModificarTituloNota(int idCuaderno, int idNota, string titulo)
+        {
+            this.UsuarioActual.Cuadernos[idCuaderno].ModificarTituloNota(idNota, titulo);
+        }
+
+        public string ObtenerNombreUsuario => this.UsuarioActual.Nombre;
+
+        public List<string> ObtenerTitulosCuaderno()
+        {
+            List<string> titulosCuadernos = new List<string>();
+
+            foreach (var cuaderno in this.UsuarioActual.Cuadernos)
+            {
+                titulosCuadernos.Add(cuaderno.Titulo);
+            }
+
+            return titulosCuadernos;
+        }
+
+        public List<String> ObtenerTitulosNotasCuaderno(int idCuaderno)
+        {
+            List<String> titulosNotas = new List<string>();
+
+            foreach (var nota in this.UsuarioActual.Cuadernos[idCuaderno].Notas)
+            {
+                titulosNotas.Add(nota.Titulo);
+            }
+
+            return titulosNotas;
+        }
+
+        public DateTime ObtenerFechaCreacionCuaderno(int idCuaderno) =>
+            this.UsuarioActual.Cuadernos[idCuaderno].HoraCreacion;
+
+        public DateTime ObtenerFechaModificacionCuaderno(int idCuaderno) =>
+            this.UsuarioActual.Cuadernos[idCuaderno].HoraModificacion;
+
+        public string ObtenerContenidoNota(int idCuaderno, int idNota) =>
+            this.UsuarioActual.Cuadernos[idCuaderno].Notas[idNota].Contenido;
+
+        public DateTime ObtenerFechaCreacionNota(int idCuaderno, int idNota) =>
+            this.UsuarioActual.Cuadernos[idCuaderno].Notas[idNota].HoraCreacion;
+
+        public DateTime ObtenerFechaModificacionNota(int idCuaderno, int idNota) =>
+            this.UsuarioActual.Cuadernos[idCuaderno].Notas[idNota].HoraModificacion;
+
+        public Cuaderno SeleccionarCuaderno(int idCuaderno) =>
+            this.UsuarioActual.Cuadernos[idCuaderno];
+
+        public Nota SeleccionarNota(int idCuaderno, int idNota) =>
+            this.UsuarioActual.Cuadernos[idCuaderno].Notas[idNota];
+    }
 }

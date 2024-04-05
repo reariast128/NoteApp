@@ -1,18 +1,20 @@
-namespace NoteApp;
-
-public class Nota
+namespace NoteApp
 {
-    public DateTime horaCreacion;
-    public DateTime horaModificacion;
-    public string titulo;
-    public string contenido;
 
-    public Nota(string titulo, string contenido)
+    public class Nota
     {
-        this.titulo = titulo;
-        this.contenido = contenido;
-        this.horaCreacion = DateTime.Now;
-        this.horaModificacion = DateTime.Now;
+        public DateTime HoraCreacion;
+        public DateTime HoraModificacion;
+        public string Titulo;
+        public string Contenido;
+
+        public Nota(string titulo, string contenido)
+        {
+            this.Titulo = titulo;
+            this.Contenido = contenido;
+            this.HoraCreacion = DateTime.Now;
+            this.HoraModificacion = DateTime.Now;
+        }
+
     }
-    
 }
