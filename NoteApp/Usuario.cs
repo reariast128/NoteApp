@@ -9,7 +9,7 @@ public class Usuario
     {
         this.nombre = nombre;
         this.cuadernos = new List<Cuaderno>();
-        this.cuadernos.Append(new Cuaderno("Nuevo Cuaderno"));
+        this.cuadernos.Add(new Cuaderno("Nuevo Cuaderno"));
     }
 
     public void cambiarNombre(string nombre)
